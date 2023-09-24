@@ -12,11 +12,13 @@ public class RockPaperScissors {
         int wins = 0;
         int loses = 0;
         int draws = 0;
+        boolean isValid = true;
 
         System.out.println("Choose [r]ock, [p]aper, [s]cissors or [E]nds the game");
         String playerMove = scanner.nextLine();
 
         while (!"E".equalsIgnoreCase(playerMove)) {
+
 
             if (playerMove.equals("r") || playerMove.equals("rock")) {
                 playerMove = ROCK;
@@ -25,9 +27,10 @@ public class RockPaperScissors {
             } else if (playerMove.equals("s") || playerMove.equals("scissors")) {
                 playerMove = SCISSORS;
             } else {
+                isValid = false;
                 System.out.println("Invalid input. Try again...");
-                return;
             }
+
 
             Random random = new Random();
             int computerRandomNumber = random.nextInt(3);
@@ -63,6 +66,17 @@ public class RockPaperScissors {
             System.out.println("Choose [r]ock, [p]aper, [s]cissors or [E]nds the game");
             playerMove = scanner.nextLine();
         }
-        System.out.printf("Game Ends with result: %d Wins, %d Loses, %d Draws", wins, loses, draws);
+        System.out.printf("Game Ends with the following result:%n");
+        System.out.printf("WINS: %d%n", wins);
+        System.out.printf("LOSES: %d%n", loses);
+        System.out.printf("DRAWS: %d%n", draws);
+        if (wins > loses) {
+            System.out.println("You are FINAL Winner!");
+        } else if (loses > wins) {
+            System.out.println("Computer is FINAL Winner!");
+        } else {
+            System.out.println("No FINAL Winner - game is a DRAW");
+        }
+
     }
 }
