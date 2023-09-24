@@ -63,6 +63,7 @@ public class RockPaperScissors {
                 ++draws;
                 System.out.println("This game was a draw.");
             }
+            System.out.println();
             System.out.println("Choose [r]ock, [p]aper, [s]cissors or [E]nds the game");
             playerMove = scanner.nextLine();
         }
